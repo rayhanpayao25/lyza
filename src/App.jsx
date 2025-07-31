@@ -130,7 +130,7 @@
           {/* Header */}
           <header className="header">
             <nav className="nav">
-              <h1 className="logo">💕 Girlfriend Day</h1>
+              <h1 className="logo">💕 To my Lyza </h1>
               <div className="nav-links">
                 <a
                   href="#home"
@@ -178,7 +178,8 @@
               <div className="hero-content">
                 <h1 className="hero-title">Happy Girlfriend Day My Love💖</h1>
                 <p className="hero-subtitle">
-                  Celebrating the amazing woman who makes every day brighter - my beautiful Lylyza
+                  Happy GF Day to my beautiful loverrr! Thank you for existing mylove. I hope this simple website makes you
+                  smile and feel loved. You are the best girlfriend in the world! I love you so much! 💕 💕💕 
                 </p>
                 <div className="hero-hearts">
                   <span className="heart">💕</span>
@@ -237,7 +238,7 @@
           {/* Celebrate Section */}
           <section id="celebrate" className="celebrate">
             <div className="container">
-              <h2 className="section-title">How to Celebrate</h2>
+              <h2 className="section-title">Things I do to her</h2>
               <div className="celebrate-grid">
                 <div className="celebrate-card">
                   <div className="card-icon">🌹</div>
@@ -263,235 +264,237 @@
             </div>
           </section>
 
-          {/* Mini Games Section */}
-          <section id="games" className="games">
-            <div className="container">
-              <h2 className="section-title">Love Mini Games</h2>
-              <div className="games-grid">
-                {/* Love Calculator */}
-                <div className="game-card">
-                  <h3>💕 Love Calculator</h3>
-                  <p>Calculate your love compatibility!</p>
-                  <div className="love-calculator">
-                    <div className="love-meter">
-                      <div className="love-percentage">{loveScore}%</div>
-                      <div className="love-bar">
-                        <div className="love-fill" style={{ width: `${loveScore}%` }}></div>
-                      </div>
-                    </div>
-                    <button className="game-btn" onClick={generateLoveScore}>
-                      Calculate Love 💖
-                    </button>
-                    {loveScore > 0 && (
-                      <p className="love-result">
-                        {loveScore >= 95
-                          ? "Perfect Match! 💕"
-                          : loveScore >= 90
-                            ? "Amazing Love! 💖"
-                            : "Great Compatibility! 💗"}
-                      </p>
-                    )}
-                  </div>
-                </div>
+          
 
-                {/* Kiss Counter */}
-                <div className="game-card">
-                  <h3>💋 Kiss Counter</h3>
-                  <p>Send virtual kisses to Lylyza!</p>
-                  <div className="kiss-counter">
-                    <div className="kiss-display">
-                      <span className="kiss-emoji">💋</span>
-                      <span className="kiss-count">{kisses}</span>
-                    </div>
-                    <button className="game-btn kiss-btn" onClick={addKiss}>
-                      Send Kiss 💋
-                    </button>
-                    {kisses > 0 && (
-                      <p className="kiss-message">
-                        {kisses === 1
-                          ? "First kiss sent! 💕"
-                          : kisses < 10
-                            ? `${kisses} kisses sent! 😘`
-                            : kisses < 50
-                              ? `Wow! ${kisses} kisses! 💖`
-                              : `Amazing! ${kisses} kisses of love! 💕💕💕`}
-                      </p>
-                    )}
-                  </div>
-                </div>
-
-                {/* Love Quiz */}
-                <div className="game-card">
-                  <h3>❤️ Love Quiz</h3>
-                  <p>Test your love knowledge!</p>
-                  <div className="love-quiz">
-                    {!showQuizResult ? (
-                      <div className="quiz-question">
-                        <h4>{quizQuestions[currentQuiz].question}</h4>
-                        <div className="quiz-options">
-                          {quizQuestions[currentQuiz].options.map((option, index) => (
-                            <button key={index} className="quiz-option" onClick={() => handleQuizAnswer(index)}>
-                              {option}
-                            </button>
-                          ))}
-                        </div>
-                        <div className="quiz-progress">
-                          Question {currentQuiz + 1} of {quizQuestions.length}
-                        </div>
+            {/* Reasons Section */}
+            <section id="reasons" className="reasons">
+              <div className="container">
+                <h2 className="section-title">Why Lylyza is Absolutely Amazing ✨</h2>
+                <div className="reasons-creative-grid">
+                  {/* Reason 1 - Interactive Card */}
+                  <div className="reason-creative-card card-flip">
+                    <div className="card-inner">
+                      <div className="card-front">
+                        <div className="reason-icon">👯‍♀️</div>
+                        <h3>She's Your Best Friend</h3>
+                        <div className="card-decoration">💕</div>
                       </div>
-                    ) : (
-                      <div className="quiz-result">
-                        <h4>Quiz Complete! 🎉</h4>
+                      <div className="card-back">
                         <p>
-                          You scored {quizScore} out of {quizQuestions.length}!
+                          Always there to listen to your stories, laugh at your jokes, and share every precious moment. She's
+                          not just your girlfriend - she's your partner in crime! 🎭
                         </p>
-                        <p className="quiz-message">
-                          {quizScore === quizQuestions.length
-                            ? "Perfect! You know love! 💕"
-                            : quizScore >= 2
-                              ? "Great job! Love expert! 💖"
-                              : "Good try! Love is learning! 💗"}
-                        </p>
-                        <button className="game-btn" onClick={resetQuiz}>
-                          Play Again
-                        </button>
                       </div>
-                    )}
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </section>
-
-          {/* Reasons Section */}
-          <section id="reasons" className="reasons">
-            <div className="container">
-              <h2 className="section-title">Why Lylyza is Absolutely Amazing ✨</h2>
-              <div className="reasons-creative-grid">
-                {/* Reason 1 - Interactive Card */}
-                <div className="reason-creative-card card-flip">
-                  <div className="card-inner">
-                    <div className="card-front">
-                      <div className="reason-icon">👯‍♀️</div>
-                      <h3>She's Your Best Friend</h3>
-                      <div className="card-decoration">💕</div>
                     </div>
-                    <div className="card-back">
+                  </div>
+
+                  {/* Reason 2 - Expanding Card */}
+                  <div className="reason-creative-card card-expand">
+                    <div className="reason-icon">🚀</div>
+                    <h3>Dream Supporter Extraordinaire</h3>
+                    <div className="expand-content">
                       <p>
-                        Always there to listen to your stories, laugh at your jokes, and share every precious moment. She's
-                        not just your girlfriend - she's your partner in crime! 🎭
+                        She believes in you even when you don't believe in yourself. Your biggest cheerleader, your motivation
+                        coach, your success celebration partner! 🎉
                       </p>
+                      <div className="floating-hearts">
+                        <span>💖</span>
+                        <span>💫</span>
+                        <span>⭐</span>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Reason 2 - Expanding Card */}
-                <div className="reason-creative-card card-expand">
-                  <div className="reason-icon">🚀</div>
-                  <h3>Dream Supporter Extraordinaire</h3>
-                  <div className="expand-content">
+                  {/* Reason 3 - Animated Card */}
+                  <div className="reason-creative-card card-bounce">
+                    <div className="reason-icon bouncing">😊</div>
+                    <h3>Sunshine in Human Form</h3>
                     <p>
-                      She believes in you even when you don't believe in yourself. Your biggest cheerleader, your motivation
-                      coach, your success celebration partner! 🎉
+                      Her smile lights up the room, her laugh is music to your ears, and her presence turns any ordinary day
+                      into something magical! ☀️✨
                     </p>
-                    <div className="floating-hearts">
-                      <span>💖</span>
+                    <div className="smile-animation">
+                      <span className="smile-emoji">😄</span>
+                      <span className="smile-emoji">😍</span>
+                      <span className="smile-emoji">🥰</span>
+                    </div>
+                  </div>
+
+                  {/* Reason 4 - Gradient Card */}
+                  <div className="reason-creative-card card-gradient">
+                    <div className="beauty-stars">✨ ⭐ 💫 ✨</div>
+                    <div className="reason-icon">👸</div>
+                    <h3>Uniquely Beautiful Queen</h3>
+                    <p>
+                      Inside and out, she radiates beauty that's all her own. Her kindness, her spirit, her everything -
+                      absolutely stunning! 👑
+                    </p>
+                    <div className="beauty-glow"></div>
+                  </div>
+
+                  {/* Reason 5 - Heart Pulse Card */}
+                  <div className="reason-creative-card card-pulse">
+                    <div className="reason-icon pulse-heart">💝</div>
+                    <h3>Your Forever Person</h3>
+                    <p>
+                      Through every storm and every rainbow, she's right there beside you. Your constant, your anchor, your
+                      home. 🏠💕
+                    </p>
+                    <div className="pulse-rings">
+                      <div className="pulse-ring"></div>
+                      <div className="pulse-ring"></div>
+                      <div className="pulse-ring"></div>
+                    </div>
+                  </div>
+
+                  {/* Reason 6 - Magic Card */}
+                  <div className="reason-creative-card card-magic">
+                    <div className="magic-sparkles">
+                      <span>✨</span>
+                      <span>🌟</span>
+                      <span>💫</span>
+                      <span>⭐</span>
+                      <span>✨</span>
+                      <span>🌟</span>
                       <span>💫</span>
                       <span>⭐</span>
                     </div>
+                    <div className="reason-icon">🎭</div>
+                    <h3>Life's Magic Maker</h3>
+                    <p>
+                      She transforms ordinary moments into extraordinary memories. With her, every day feels like a beautiful
+                      adventure! 🎪🎨
+                    </p>
+                    <div className="magic-wand">🪄</div>
                   </div>
                 </div>
 
-                {/* Reason 3 - Animated Card */}
-                <div className="reason-creative-card card-bounce">
-                  <div className="reason-icon bouncing">😊</div>
-                  <h3>Sunshine in Human Form</h3>
-                  <p>
-                    Her smile lights up the room, her laugh is music to your ears, and her presence turns any ordinary day
-                    into something magical! ☀️✨
-                  </p>
-                  <div className="smile-animation">
-                    <span className="smile-emoji">😄</span>
-                    <span className="smile-emoji">😍</span>
-                    <span className="smile-emoji">🥰</span>
+                  {/* Mini Games Section */}
+            <section id="games" className="games">
+              <div className="container">
+                <h2 className="section-title">Love Mini Games</h2>
+                <div className="games-grid">
+                  {/* Love Calculator */}
+                  <div className="game-card">
+                    <h3>💕 Love Calculator</h3>
+                    <p>Calculate your love compatibility!</p>
+                    <div className="love-calculator">
+                      <div className="love-meter">
+                        <div className="love-percentage">{loveScore}%</div>
+                        <div className="love-bar">
+                          <div className="love-fill" style={{ width: `${loveScore}%` }}></div>
+                        </div>
+                      </div>
+                      <button className="game-btn" onClick={generateLoveScore}>
+                        Calculate Love 💖
+                      </button>
+                      {loveScore > 0 && (
+                        <p className="love-result">
+                          {loveScore >= 95
+                            ? "Perfect Match! 💕"
+                            : loveScore >= 90
+                              ? "Amazing Love! 💖"
+                              : "Great Compatibility! 💗"}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                </div>
 
-                {/* Reason 4 - Gradient Card */}
-                <div className="reason-creative-card card-gradient">
-                  <div className="beauty-stars">✨ ⭐ 💫 ✨</div>
-                  <div className="reason-icon">👸</div>
-                  <h3>Uniquely Beautiful Queen</h3>
-                  <p>
-                    Inside and out, she radiates beauty that's all her own. Her kindness, her spirit, her everything -
-                    absolutely stunning! 👑
-                  </p>
-                  <div className="beauty-glow"></div>
-                </div>
-
-                {/* Reason 5 - Heart Pulse Card */}
-                <div className="reason-creative-card card-pulse">
-                  <div className="reason-icon pulse-heart">💝</div>
-                  <h3>Your Forever Person</h3>
-                  <p>
-                    Through every storm and every rainbow, she's right there beside you. Your constant, your anchor, your
-                    home. 🏠💕
-                  </p>
-                  <div className="pulse-rings">
-                    <div className="pulse-ring"></div>
-                    <div className="pulse-ring"></div>
-                    <div className="pulse-ring"></div>
+                  {/* Kiss Counter */}
+                  <div className="game-card">
+                    <h3>💋 Kiss Counter</h3>
+                    <p>Send virtual kisses to Lylyza!</p>
+                    <div className="kiss-counter">
+                      <div className="kiss-display">
+                        <span className="kiss-emoji">💋</span>
+                        <span className="kiss-count">{kisses}</span>
+                      </div>
+                      <button className="game-btn kiss-btn" onClick={addKiss}>
+                        Send Kiss 💋
+                      </button>
+                      {kisses > 0 && (
+                        <p className="kiss-message">
+                          {kisses === 1
+                            ? "First kiss sent! 💕"
+                            : kisses < 10
+                              ? `${kisses} kisses sent! 😘`
+                              : kisses < 50
+                                ? `Wow! ${kisses} kisses! 💖`
+                                : `Amazing! ${kisses} kisses of love! 💕💕💕`}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                </div>
 
-                {/* Reason 6 - Magic Card */}
-                <div className="reason-creative-card card-magic">
-                  <div className="magic-sparkles">
-                    <span>✨</span>
-                    <span>🌟</span>
-                    <span>💫</span>
-                    <span>⭐</span>
-                    <span>✨</span>
-                    <span>🌟</span>
-                    <span>💫</span>
-                    <span>⭐</span>
+                  {/* Love Quiz */}
+                  <div className="game-card">
+                    <h3>❤️ Love Quiz</h3>
+                    <p>Test your love knowledge!</p>
+                    <div className="love-quiz">
+                      {!showQuizResult ? (
+                        <div className="quiz-question">
+                          <h4>{quizQuestions[currentQuiz].question}</h4>
+                          <div className="quiz-options">
+                            {quizQuestions[currentQuiz].options.map((option, index) => (
+                              <button key={index} className="quiz-option" onClick={() => handleQuizAnswer(index)}>
+                                {option}
+                              </button>
+                            ))}
+                          </div>
+                          <div className="quiz-progress">
+                            Question {currentQuiz + 1} of {quizQuestions.length}
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="quiz-result">
+                          <h4>Quiz Complete! 🎉</h4>
+                          <p>
+                            You scored {quizScore} out of {quizQuestions.length}!
+                          </p>
+                          <p className="quiz-message">
+                            {quizScore === quizQuestions.length
+                              ? "Perfect! You know love! 💕"
+                              : quizScore >= 2
+                                ? "Great job! Love expert! 💖"
+                                : "Good try! Love is learning! 💗"}
+                          </p>
+                          <button className="game-btn" onClick={resetQuiz}>
+                            Play Again
+                          </button>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  <div className="reason-icon">🎭</div>
-                  <h3>Life's Magic Maker</h3>
-                  <p>
-                    She transforms ordinary moments into extraordinary memories. With her, every day feels like a beautiful
-                    adventure! 🎪🎨
-                  </p>
-                  <div className="magic-wand">🪄</div>
+
                 </div>
               </div>
+            </section>
 
-              {/* Special Message */}
-              <div className="special-message">
-                <div className="message-heart">💖</div>
-                <h3>Here are some of my websites that you can play Mahal!💖</h3>
-                <a
-                  href="https://ryeeeepokemon.netlify.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="website-link"
-                >
-                  🎮 Pokemon Game - Catch 'em all mahal!
-                </a>
-                <a href="https://ryeeemeow.netlify.app/" target="_blank" rel="noopener noreferrer" className="website-link">
-                  🐱 Meow Game - Play with cute cats!
-                </a>
-                <div className="message-decoration">
-                  <span>🌹</span>
-                  <span>💕</span>
-                  <span>🌹</span>
+                {/* Special Message */}
+                <div className="special-message">
+                  <div className="message-heart">💖</div>
+                  <h3>Here are some of my websites that you can play Mahal!💖</h3>
+                  <a
+                    href="https://ryeeeepokemon.netlify.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="website-link"
+                  >
+                    🎮 Pokemon Game - Catch 'em all mahal!
+                  </a>
+                  <a href="https://ryeeemeow.netlify.app/" target="_blank" rel="noopener noreferrer" className="website-link">
+                    🐱 Meow Game - Play with cute cats!
+                  </a>
+                  <div className="message-decoration">
+                    <span>🌹</span>
+                    <span>💕</span>
+                    <span>🌹</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
-        </div>
-      )
-    }
+            </section>
+          </div>
+        )
+      }
 
-    export default App
+      export default App
