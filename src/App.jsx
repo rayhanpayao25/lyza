@@ -28,12 +28,15 @@ function App() {
     "./images/lyza3.jpg",
     "./images/lyza4.jpg",
     "./images/lyza5.png",
+    "./images/mem.jpg",
+    "./images/letter.jpg",
+    "./images/gift.jpg",
   ]
 
   // Quiz Questions
   const quizQuestions = [
     {
-      question: "What makes Lylyza special?",
+      question: "What makes Lyza special?",
       options: ["Her beautiful smile", "Her kind heart", "Her amazing personality", "All of the above"],
       correct: 3,
     },
@@ -162,50 +165,18 @@ function App() {
       surprise: {
         title: "Surprise Her! 🌹",
         image: "./images/lyza.jpg",
-        content:
-          "Plan something special that will make her heart skip a beat! Whether it's her favorite flowers, a surprise date, or just showing up with her favorite treat - the element of surprise shows how much you think about her happiness.",
-        tips: [
-          "🌹 Bring her favorite flowers unexpectedly",
-          "🍰 Surprise her with her favorite dessert",
-          "📍 Plan a surprise visit to a place she loves",
-          "🎵 Create a playlist of songs that remind you of her",
-        ],
       },
       letter: {
         title: "Write a Love Letter 💌",
-        image: "./images/lyza.jpg",
-        content:
-          "There's something magical about handwritten words. In our digital age, a heartfelt letter shows effort, thought, and genuine care. Pour your heart onto paper and watch her eyes light up as she reads your words.",
-        tips: [
-          "✍️ Write it by hand for that personal touch",
-          "💕 Share specific memories you cherish together",
-          "🌟 Tell her what makes her special to you",
-          "💌 Seal it with a kiss or her favorite perfume",
-        ],
+        image: "./images/letter.jpg",
       },
       gift: {
         title: "Give a Thoughtful Gift 🎁",
-        image: "./images/lyza.jpg",
-        content:
-          "The best gifts aren't always the most expensive - they're the most thoughtful. Show her you pay attention to the little things she mentions, her interests, and what makes her smile.",
-        tips: [
-          "🎨 Something related to her hobbies or interests",
-          "📚 A book by her favorite author",
-          "☕ Her favorite coffee or tea blend",
-          "🧸 Something cute that reminds you of her",
-        ],
+        image: "./images/gift.jpg",
       },
       memories: {
         title: "Create Beautiful Memories 📸",
-        image: "./images/lyza.jpg",
-        content:
-          "Life is made of moments, and the best ones are shared with someone special. Create new adventures together and capture them to look back on with smiles for years to come.",
-        tips: [
-          "📸 Take photos together in beautiful places",
-          "🎪 Try new activities or adventures together",
-          "📖 Start a scrapbook of your journey together",
-          "🌅 Watch a sunrise or sunset together",
-        ],
+        image: "./images/mem.jpg",
       },
     }
 
@@ -251,13 +222,13 @@ function App() {
               Home
             </a>
             <a
-              href="#celebrate"
+              href="#ilovee"
               onClick={(e) => {
                 e.preventDefault()
                 scrollToSection("celebrate")
               }}
             >
-              Celebrate
+              Things I love
             </a>
             <a
               href="#games"
@@ -275,7 +246,7 @@ function App() {
                 scrollToSection("reasons")
               }}
             >
-              Why She's Amazing
+              Why My GF's Amazing
             </a>
           </div>
         </nav>
@@ -347,30 +318,30 @@ function App() {
       {/* Celebrate Section */}
       <section id="celebrate" className="celebrate">
         <div className="container">
-          <h2 className="section-title">Things I do to her</h2>
+          <h2 className="section-title">Things I do to BEBEEEEEEE</h2>
           <div className="celebrate-grid">
             <div className="celebrate-card" onClick={() => openModal("surprise")}>
               <div className="card-icon">🌹</div>
               <h3>Surprise Her</h3>
-              <p>Plan a surprise date, bring her favorite flowers, or cook her favorite meal</p>
+              <p>Even though I really struggled figuring out how to pay through ABA, I still found a way HAAHHAAH anything for my lover!</p>
               <div className="click-hint">Click to explore! ✨</div>
             </div>
             <div className="celebrate-card" onClick={() => openModal("letter")}>
               <div className="card-icon">💌</div>
               <h3>Write a Letter</h3>
-              <p>Express your feelings with a heartfelt handwritten letter or love note</p>
+              <p>Bruh, I really tried my best to write a letter for you, but my handwriting is so ewww! HAHAHAHa I’ll do my best next time bebe.</p>
               <div className="click-hint">Click to explore! ✨</div>
             </div>
             <div className="celebrate-card" onClick={() => openModal("gift")}>
               <div className="card-icon">🎁</div>
               <h3>Give a Gift</h3>
-              <p>Something thoughtful that shows how much you care and know her</p>
+              <p>I put your name on my guitar, bebe, so I can always remember you AHAHAHAHAHAHAH   👀👀👀</p>
               <div className="click-hint">Click to explore! ✨</div>
             </div>
             <div className="celebrate-card" onClick={() => openModal("memories")}>
               <div className="card-icon">📸</div>
               <h3>Create Memories</h3>
-              <p>Take photos together, make a scrapbook, or plan a special adventure</p>
+              <p>Take photos together alwayssssssssss, so prettyyyy na</p>
               <div className="click-hint">Click to explore! ✨</div>
             </div>
           </div>
@@ -397,17 +368,6 @@ function App() {
                   }}
                 />
               </div>
-              <div className="modal-text">
-                <p>{modalContent.content}</p>
-                <div className="modal-tips">
-                  <h4>💡 Ideas to try:</h4>
-                  <ul>
-                    {modalContent.tips?.map((tip, index) => (
-                      <li key={index}>{tip}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
               <div className="modal-footer">
                 <button className="modal-btn" onClick={closeModal}>
                   Got it! 💕
@@ -421,20 +381,19 @@ function App() {
       {/* Reasons Section */}
       <section id="reasons" className="reasons">
         <div className="container">
-          <h2 className="section-title">Why Lylyza is Absolutely Amazing ✨</h2>
+          <h2 className="section-title">Why BEBE is Absolutely Amazing ✨</h2>
           <div className="reasons-creative-grid">
             {/* Reason 1 - Interactive Card */}
             <div className="reason-creative-card card-flip">
               <div className="card-inner">
                 <div className="card-front">
                   <div className="reason-icon">👯‍♀️</div>
-                  <h3>She's Your Best Friend</h3>
+                  <h3>She's MY Best Friend</h3>
                   <div className="card-decoration">💕</div>
                 </div>
                 <div className="card-back">
                   <p>
-                    Always there to listen to your stories, laugh at your jokes, and share every precious moment. She's
-                    not just your girlfriend - she's your partner in crime! 🎭
+                  ខ្ញុំនឹងនៅតែងតែស្តាប់រឿងរ៉ាវរបស់អ្នក សើចនឹងកំប្លែងរបស់អ្នក ហើយចែករំលែកគ្រប់ពេលវេលាដ៏មានតម្លៃជាមួយអ្នក។🎭
                   </p>
                 </div>
               </div>
@@ -442,11 +401,10 @@ function App() {
             {/* Reason 2 - Expanding Card */}
             <div className="reason-creative-card card-expand">
               <div className="reason-icon">🚀</div>
-              <h3>Dream Supporter Extraordinaire</h3>
+              <h3>Academic Achiver</h3>
               <div className="expand-content">
                 <p>
-                  She believes in you even when you don't believe in yourself. Your biggest cheerleader, your motivation
-                  coach, your success celebration partner! 🎉
+                នាងពូកែគ្រប់យ៉ាង។ អ្វីៗដែលនាងធ្វើ នាងធ្វើដោយចិត្តទាំងស្រុង 🎉
                 </p>
                 <div className="floating-hearts">
                   <span>💖</span>
@@ -460,8 +418,7 @@ function App() {
               <div className="reason-icon bouncing">😊</div>
               <h3>Sunshine in Human Form</h3>
               <p>
-                Her smile lights up the room, her laugh is music to your ears, and her presence turns any ordinary day
-                into something magical! ☀️✨
+              ស្នាមញញឹមរបស់នាងបំភ្លឺបន្ទប់មួយ ទំាងសំនៀងសើចរបស់នាងគឺជាម៉ូស៊ិកសម្រាប់ត្រចៀកអ្នក ហើយវត្តមានរបស់នាងធ្វើឲ្យថ្ងៃធម្មតាមួយក្លាយជាអ្វីមួយវិសេស! ☀️✨
               </p>
               <div className="smile-animation">
                 <span className="smile-emoji">😄</span>
@@ -475,8 +432,7 @@ function App() {
               <div className="reason-icon">👸</div>
               <h3>Uniquely Beautiful Queen</h3>
               <p>
-                Inside and out, she radiates beauty that's all her own. Her kindness, her spirit, her everything -
-                absolutely stunning! 👑
+              ខាងក្នុងនិងខាងក្រៅ នាងបញ្ចេញភាពស្រស់ស្អាតដែលជារបស់នាងផ្ទាល់។ ភាពមានមេត្តា រូបមន្ដ និងអ្វីៗទាំងអស់របស់នាង — គ្រាន់តែអស្ចារ្យបំផុត! 👑
               </p>
               <div className="beauty-glow"></div>
             </div>
@@ -485,8 +441,7 @@ function App() {
               <div className="reason-icon pulse-heart">💝</div>
               <h3>Your Forever Person</h3>
               <p>
-                Through every storm and every rainbow, she's right there beside you. Your constant, your anchor, your
-                home. 🏠💕
+              សូមព្យាយាមកុំ tampo ជាញឹកញាប់អីណា បានទេ? អ្នកតែងតែសម្បាញខ្ញុំជានិច្ចហាហាហា។ ស្រឡាញ់អ្នកណាស់លើកនេះ!
               </p>
               <div className="pulse-rings">
                 <div className="pulse-ring"></div>
