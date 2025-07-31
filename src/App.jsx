@@ -24,7 +24,7 @@ function App() {
     "/src/images/lyza2.jpg",
     "/src/images/lyza3.jpg",
     "/src/images/lyza4.jpg",
-    "/src/images/lyza5.jpg",
+    "/src/images/lyza5.png",
   ]
 
   // Quiz Questions
