@@ -335,19 +335,15 @@ body {
 .heart:nth-child(1) {
   --i: 0;
 }
-
 .heart:nth-child(2) {
   --i: 1;
 }
-
 .heart:nth-child(3) {
   --i: 2;
 }
-
 .heart:nth-child(4) {
   --i: 3;
 }
-
 .heart:nth-child(5) {
   --i: 4;
 }
@@ -872,11 +868,9 @@ body {
 .floating-hearts span:nth-child(1) {
   animation-delay: 0s;
 }
-
 .floating-hearts span:nth-child(2) {
   animation-delay: 0.5s;
 }
-
 .floating-hearts span:nth-child(3) {
   animation-delay: 1s;
 }
@@ -940,11 +934,9 @@ body {
 .smile-emoji:nth-child(1) {
   animation-delay: 0s;
 }
-
 .smile-emoji:nth-child(2) {
   animation-delay: 1s;
 }
-
 .smile-emoji:nth-child(3) {
   animation-delay: 2s;
 }
@@ -1049,11 +1041,9 @@ body {
 .pulse-ring:nth-child(1) {
   animation-delay: 0s;
 }
-
 .pulse-ring:nth-child(2) {
   animation-delay: 0.7s;
 }
-
 .pulse-ring:nth-child(3) {
   animation-delay: 1.4s;
 }
@@ -1069,124 +1059,61 @@ body {
   }
 }
 
-/* Magic Card */
-.card-magic {
+/* Video Card - FIXED SIZE CONSTRAINTS */
+.card-video {
   position: relative;
-  background: linear-gradient(45deg, #e91e63, #9c27b0, #3f51b5, #e91e63);
-  background-size: 400% 400%;
-  animation: magicGradient 4s ease infinite;
-  color: white;
 }
 
-.card-magic h3,
-.card-magic p {
-  color: white;
+.video-container {
+  margin: 1rem 0;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  /* ADDED: Container size constraints */
+  max-width: 100%;
+  width: 100%;
 }
 
-@keyframes magicGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.special-video {
+  /* FIXED: Added size constraints for the video */
+  width: 100%;
+  max-width: 300px; /* Maximum width */
+  height: 200px; /* Fixed height */
+  object-fit: cover; /* Maintain aspect ratio */
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto; /* Center the video */
 }
 
-.magic-sparkles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
+.video-sparkles {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-.magic-sparkles span {
-  position: absolute;
-  animation: sparkle 3s infinite;
+.video-sparkles span {
+  font-size: 1.2rem;
+  animation: sparkle 2s infinite;
 }
 
-.magic-sparkles span:nth-child(1) {
-  top: 10%;
-  left: 10%;
+.video-sparkles span:nth-child(odd) {
   animation-delay: 0s;
 }
 
-.magic-sparkles span:nth-child(2) {
-  top: 20%;
-  right: 15%;
-  animation-delay: 0.5s;
-}
-
-.magic-sparkles span:nth-child(3) {
-  bottom: 30%;
-  left: 20%;
+.video-sparkles span:nth-child(even) {
   animation-delay: 1s;
-}
-
-.magic-sparkles span:nth-child(4) {
-  bottom: 10%;
-  right: 10%;
-  animation-delay: 1.5s;
-}
-
-.magic-sparkles span:nth-child(5) {
-  top: 50%;
-  left: 5%;
-  animation-delay: 2s;
-}
-
-.magic-sparkles span:nth-child(6) {
-  top: 60%;
-  right: 5%;
-  animation-delay: 2.5s;
-}
-
-.magic-sparkles span:nth-child(7) {
-  bottom: 50%;
-  left: 50%;
-  animation-delay: 3s;
-}
-
-.magic-sparkles span:nth-child(8) {
-  top: 30%;
-  right: 50%;
-  animation-delay: 3.5s;
 }
 
 @keyframes sparkle {
   0%,
   100% {
-    opacity: 0;
-    transform: scale(0.5);
+    opacity: 0.5;
+    transform: scale(1);
   }
   50% {
     opacity: 1;
     transform: scale(1.2);
-  }
-}
-
-.magic-wand {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  font-size: 1.5rem;
-  animation: wandWave 2s infinite;
-}
-
-@keyframes wandWave {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(10deg);
-  }
-  75% {
-    transform: rotate(-10deg);
   }
 }
 
@@ -1250,11 +1177,9 @@ body {
 .message-decoration span:nth-child(1) {
   animation-delay: 0s;
 }
-
 .message-decoration span:nth-child(2) {
   animation-delay: 1s;
 }
-
 .message-decoration span:nth-child(3) {
   animation-delay: 2s;
 }
@@ -1325,6 +1250,12 @@ body {
   .message-text {
     font-size: 1.1rem;
   }
+
+  /* Mobile video constraints */
+  .special-video {
+    max-width: 250px;
+    height: 150px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1342,6 +1273,12 @@ body {
 
   .card-flip {
     height: 180px;
+  }
+
+  /* Smaller mobile video constraints */
+  .special-video {
+    max-width: 200px;
+    height: 120px;
   }
 }
 

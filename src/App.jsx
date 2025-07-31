@@ -152,7 +152,6 @@ function App() {
     const distance = touchStart - touchEnd
     const isLeftSwipe = distance > 50
     const isRightSwipe = distance < -50
-
     if (isLeftSwipe) {
       nextImage()
     }
@@ -183,7 +182,6 @@ function App() {
     if (selectedAnswer === quizQuestions[currentQuiz].correct) {
       setQuizScore(quizScore + 1)
     }
-
     if (currentQuiz < quizQuestions.length - 1) {
       setCurrentQuiz(currentQuiz + 1)
     } else {
@@ -492,7 +490,7 @@ function App() {
                 <div className="pulse-ring"></div>
               </div>
             </div>
-            {/* Reason 6 - Video Card */}
+            {/* Reason 6 - Video Card - FIXED PATH */}
             <div className="reason-creative-card card-video">
               <div className="reason-icon">🎬</div>
               <h3>Special Video for You</h3>
@@ -501,10 +499,21 @@ function App() {
                   controls
                   className="special-video"
                   poster="/placeholder.svg?height=200&width=300&text=Special+Video"
+                  onError={(e) => {
+                    console.error("Video failed to load:", e)
+                    console.log("Trying to load video from:", e.target.src)
+                  }}
+                  onLoadStart={() => console.log("Video loading started")}
+                  onCanPlay={() => console.log("Video can play")}
                 >
-                 <source src={`./b9587d59-2938-40bf-8e8e-2dc499b56abb`} type="video/mp4" />
-                  <source src={`./videos/b9587d59-2938-40bf-8e8e-2dc499b56abb.webm`} type="video/webm" />
-                  Your browser does not support the video tag.
+                  {/* FIXED: Changed from /video.mp4 to ./images/video.mp4 */}
+                  <source src="./images/video.mp4" type="video/mp4" />
+                  <p>
+                    Your browser does not support the video tag.{" "}
+                    <a href="./images/video.mp4" download>
+                      Download the video
+                    </a>
+                  </p>
                 </video>
               </div>
               <p>A special video just for my amazing girlfriend! 💕✨</p>
