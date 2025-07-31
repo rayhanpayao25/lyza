@@ -1096,6 +1096,32 @@ body {
   }
 }
 
+.website-link {
+  display: block;
+  font-size: 1.2rem;
+  color: #e91e63;
+  font-weight: bold;
+  margin: 1rem 0;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  background: linear-gradient(45deg, #fce4ec, #f8bbd9);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(233, 30, 99, 0.2);
+}
+
+.website-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(233, 30, 99, 0.3);
+  background: linear-gradient(45deg, #e91e63, #f06292);
+  color: white;
+  border-color: #e91e63;
+}
+
+.website-link:active {
+  transform: translateY(-1px);
+}
+
 /* Mobile Responsive for Creative Reasons */
 @media (max-width: 768px) {
   .reasons-creative-grid {
@@ -1185,20 +1211,6 @@ body {
     grid-column: span 1;
   }
 
-  .reason-item {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-  }
-
-  .reason-item:hover {
-    transform: translateY(-5px);
-  }
-
-  .reason-number {
-    min-width: auto;
-  }
-
   .container {
     padding: 0 1rem;
   }
@@ -1243,7 +1255,6 @@ body {
   }
 
   .celebrate-card,
-  .reason-item,
   .game-card {
     padding: 1.5rem;
   }
@@ -1280,6 +1291,12 @@ body {
     width: 40px;
     height: 40px;
     font-size: 1rem;
+  }
+
+  .website-link {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    margin: 0.8rem 0;
   }
 }
 
@@ -1344,48 +1361,3 @@ html {
   outline-offset: 2px;
   border-radius: 4px;
 }
-.website-link {
-  display: block;
-  font-size: 1.2rem;
-  color: #e91e63;
-  font-weight: bold;
-  margin: 1rem 0;
-  text-decoration: none;
-  padding: 1rem 2rem;
-  background: linear-gradient(45deg, #fce4ec, #f8bbd9);
-  border-radius: 25px;
-  transition: all 0.3s ease;
-  border: 2px solid rgba(233, 30, 99, 0.2);
-}
-
-.website-link:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(233, 30, 99, 0.3);
-  background: linear-gradient(45deg, #e91e63, #f06292);
-  color: white;
-  border-color: #e91e63;
-}
-
-.website-link:active {
-  transform: translateY(-1px);
-}
-
-/* Mobile responsive for website links */
-@media (max-width: 768px) {
-  .website-link {
-    font-size: 1rem;
-    padding: 0.8rem 1.5rem;
-    margin: 0.8rem 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .website-link {
-    font-size: 0.9rem;
-    padding: 0.7rem 1rem;
-  }
-}
-
-
-
-  

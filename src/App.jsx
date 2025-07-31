@@ -1,6 +1,6 @@
 "use client"
-
 import { useState, useEffect } from "react"
+import "./App.css"
 
 function App() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -16,15 +16,15 @@ function App() {
   const [memoryCards, setMemoryCards] = useState([])
   const [flippedCards, setFlippedCards] = useState([])
   const [matchedCards, setMatchedCards] = useState([])
-  const [memoryScore, setMemoryScore] = useState(useState(0))
+  const [memoryScore, setMemoryScore] = useState(0)
 
-  // Array of images - you can add more images here
+  // Array of images - FIXED PATHS for Netlify deployment
   const images = [
-    "/src/images/lyza.jpg",
-    "/src/images/lyza2.jpg",
-    "/src/images/lyza3.jpg",
-    "/src/images/lyza4.jpg",
-    "/src/images/lyza5.png",
+    "/images/lyza.jpg",
+    "/images/lyza2.jpg",
+    "/images/lyza3.jpg",
+    "/images/lyza4.jpg",
+    "/images/lyza5.png",
   ]
 
   // Quiz Questions
@@ -79,11 +79,9 @@ function App() {
 
   const handleTouchEnd = () => {
     if (!touchStart || !touchEnd) return
-
     const distance = touchStart - touchEnd
     const isLeftSwipe = distance > 50
     const isRightSwipe = distance < -50
-
     if (isLeftSwipe) {
       nextImage()
     }
@@ -97,7 +95,6 @@ function App() {
     const interval = setInterval(() => {
       nextImage()
     }, 5000)
-
     return () => clearInterval(interval)
   }, [])
 
@@ -115,7 +112,6 @@ function App() {
     if (selectedAnswer === quizQuestions[currentQuiz].correct) {
       setQuizScore(quizScore + 1)
     }
-
     if (currentQuiz < quizQuestions.length - 1) {
       setCurrentQuiz(currentQuiz + 1)
     } else {
@@ -237,7 +233,6 @@ function App() {
               <span className="heart">💕</span>
             </div>
           </div>
-
           {/* Image Carousel */}
           <div className="hero-image">
             <div
@@ -249,23 +244,23 @@ function App() {
               <button className="carousel-btn prev-btn" onClick={prevImage}>
                 ❮
               </button>
-
               <div className="image-container">
                 <img
                   src={images[currentImageIndex] || "/placeholder.svg"}
                   alt={`Lylyza - Photo ${currentImageIndex + 1}`}
                   className="carousel-image"
+                  onError={(e) => {
+                    e.target.src = "/placeholder.svg?height=400&width=350&text=Lylyza"
+                  }}
                 />
                 <div className="image-counter">
                   {currentImageIndex + 1} / {images.length}
                 </div>
               </div>
-
               <button className="carousel-btn next-btn" onClick={nextImage}>
                 ❯
               </button>
             </div>
-
             {/* Dots indicator */}
             <div className="carousel-dots">
               {images.map((_, index) => (
@@ -406,7 +401,34 @@ function App() {
               </div>
             </div>
 
-          
+            {/* Memory Game */}
+            <div className="game-card memory-game-card">
+              <h3>🧠 Memory Game</h3>
+              <p>Match the love symbols!</p>
+              <div className="memory-game">
+                <div className="memory-score">Score: {memoryScore}</div>
+                <div className="memory-grid">
+                  {memoryCards.map((card) => (
+                    <div
+                      key={card.id}
+                      className={`memory-card ${
+                        flippedCards.includes(card.id) || matchedCards.includes(card.id) ? "flipped" : ""
+                      }`}
+                      onClick={() => handleCardClick(card.id)}
+                    >
+                      <div className="card-front">❓</div>
+                      <div className="card-back">{card.symbol}</div>
+                    </div>
+                  ))}
+                </div>
+                <button className="game-btn" onClick={initializeMemoryGame}>
+                  New Game
+                </button>
+                {matchedCards.length === memoryCards.length && memoryCards.length > 0 && (
+                  <div className="memory-win">🎉 You Won! Great Memory! 🎉</div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -517,7 +539,7 @@ function App() {
           {/* Special Message */}
           <div className="special-message">
             <div className="message-heart">💖</div>
-            <h3>Here are some of my wesbites that you can play Mahal!💖</h3>
+            <h3>Here are some of my websites that you can play Mahal!💖</h3>
             <a
               href="https://ryeeeepokemon.netlify.app/"
               target="_blank"
@@ -529,7 +551,6 @@ function App() {
             <a href="https://ryeeemeow.netlify.app/" target="_blank" rel="noopener noreferrer" className="website-link">
               🐱 Meow Game - Play with cute cats!
             </a>
-          
             <div className="message-decoration">
               <span>🌹</span>
               <span>💕</span>
