@@ -21,16 +21,14 @@ function App() {
   const [activeModal, setActiveModal] = useState(null)
   const [modalContent, setModalContent] = useState({})
 
-  // Array of images - Using correct paths for public folder
+  // Array of images for carousel - Only Lyza photos (lyza.jpg to lyza6.jpg)
   const images = [
     "./images/lyza.jpg",
     "./images/lyza2.jpg",
     "./images/lyza3.jpg",
     "./images/lyza4.jpg",
     "./images/lyza5.png",
-    "./images/mem.jpg",
-    "./images/letter.jpg",
-    "./images/gift.jpg",
+    "./images/lyza6.jpg",
   ]
 
   // Quiz Questions
@@ -49,6 +47,46 @@ function App() {
       question: "How much do you love Lylyza?",
       options: ["A lot", "So much", "More than words can say", "To infinity and beyond"],
       correct: 3,
+    },
+    {
+      question: "What will Lyza do if someone flirts with her?",
+      options: [
+        "Smiles politely",
+        "Tells them she's taken (by YOU!)",
+        "Punch them straight up",
+        "Kick their ass and walk away like a queen",
+      ],
+      correct: 3,
+    },
+    {
+      question: "What's Lyza's reaction when someone tries to get close to YOU?",
+      options: [
+        "Gets jealous but stays classy",
+        "Rolls her eyes so hard it echoes",
+        "Snatches you away like a boss",
+        "Glares at them with fire in her soul",
+      ],
+      correct: 2,
+    },
+    {
+      question: "When you're sad, how does Lyza act?",
+      options: [
+        "Leaves you space",
+        "Buys food & cuddles you",
+        "Makes jokes 'til you laugh",
+        "All of the above, 'cause she's that girl",
+      ],
+      correct: 3,
+    },
+    {
+      question: "What's Lyza's love language with you?",
+      options: ["Clingy af 😘", "Jealous but sweet", "Soft but spicy", "All of the above, depende sa mood"],
+      correct: 3,
+    },
+    {
+      question: "What will Lyza do if someone badmouths you?",
+      options: ["Let it slide", "Talk to them calmly", "Defend you like a lioness", "Flip tables if needed 😤"],
+      correct: 2,
     },
   ]
 
@@ -72,7 +110,6 @@ function App() {
         setIsMobileMenuOpen(false)
       }
     }
-
     document.addEventListener("click", handleClickOutside)
     return () => document.removeEventListener("click", handleClickOutside)
   }, [isMobileMenuOpen])
@@ -84,7 +121,6 @@ function App() {
     } else {
       document.body.style.overflow = "unset"
     }
-
     return () => {
       document.body.style.overflow = "unset"
     }
@@ -116,6 +152,7 @@ function App() {
     const distance = touchStart - touchEnd
     const isLeftSwipe = distance > 50
     const isRightSwipe = distance < -50
+
     if (isLeftSwipe) {
       nextImage()
     }
@@ -146,6 +183,7 @@ function App() {
     if (selectedAnswer === quizQuestions[currentQuiz].correct) {
       setQuizScore(quizScore + 1)
     }
+
     if (currentQuiz < quizQuestions.length - 1) {
       setCurrentQuiz(currentQuiz + 1)
     } else {
@@ -159,27 +197,30 @@ function App() {
     setShowQuizResult(false)
   }
 
-  // Modal functions
+  // Modal functions - keeping original images for modals
   const openModal = (type) => {
     const content = {
       surprise: {
         title: "Surprise Her! 🌹",
-        image: "./images/lyza.jpg",
+        image: "./images/lyza6.jpg",
+        text: "Even though I really struggled figuring out how to pay through ABA, I still found a way HAAHHAAH anything for my lover!",
       },
       letter: {
         title: "Write a Love Letter 💌",
         image: "./images/letter.jpg",
+        text: "Bruh, I really tried my best to write a letter for you, but my handwriting is so ewww! HAHAHAHa I'll do my best next time bebe.",
       },
       gift: {
         title: "Give a Thoughtful Gift 🎁",
         image: "./images/gift.jpg",
+        text: "I put your name on my guitar, bebe, so I can always remember you AHAHAHAHAHAHAH 👀👀👀",
       },
       memories: {
         title: "Create Beautiful Memories 📸",
         image: "./images/mem.jpg",
+        text: "Take photos together alwayssssssssss, so prettyyyy na",
       },
     }
-
     setModalContent(content[type])
     setActiveModal(type)
     document.body.style.overflow = "hidden"
@@ -197,7 +238,6 @@ function App() {
       <header className="header">
         <nav className="nav">
           <h1 className="logo">💕 To my Lyza </h1>
-
           {/* Mobile Menu Button */}
           <button className="mobile-menu-btn" onClick={toggleMobileMenu} aria-label="Toggle mobile menu">
             <div className={`hamburger ${isMobileMenuOpen ? "active" : ""}`}>
@@ -206,10 +246,8 @@ function App() {
               <span></span>
             </div>
           </button>
-
           {/* Mobile Menu Overlay */}
           {isMobileMenuOpen && <div className="mobile-menu-overlay" onClick={() => setIsMobileMenuOpen(false)}></div>}
-
           {/* Navigation Links */}
           <div className={`nav-links ${isMobileMenuOpen ? "mobile-open" : ""}`}>
             <a
@@ -269,7 +307,7 @@ function App() {
               <span className="heart">💕</span>
             </div>
           </div>
-          {/* Image Carousel */}
+          {/* Image Carousel - Only showing lyza.jpg to lyza6.jpg */}
           <div className="hero-image">
             <div
               className="image-carousel"
@@ -318,24 +356,30 @@ function App() {
       {/* Celebrate Section */}
       <section id="celebrate" className="celebrate">
         <div className="container">
-          <h2 className="section-title">Things I do to BEBEEEEEEE</h2>
+          <h2 className="section-title">Things I do to MY BEBEEEEEEE</h2>
           <div className="celebrate-grid">
             <div className="celebrate-card" onClick={() => openModal("surprise")}>
               <div className="card-icon">🌹</div>
               <h3>Surprise Her</h3>
-              <p>Even though I really struggled figuring out how to pay through ABA, I still found a way HAAHHAAH anything for my lover!</p>
+              <p>
+                Even though I really struggled figuring out how to pay through ABA, I still found a way HAAHHAAH
+                anything for my lover!
+              </p>
               <div className="click-hint">Click to explore! ✨</div>
             </div>
             <div className="celebrate-card" onClick={() => openModal("letter")}>
               <div className="card-icon">💌</div>
               <h3>Write a Letter</h3>
-              <p>Bruh, I really tried my best to write a letter for you, but my handwriting is so ewww! HAHAHAHa I’ll do my best next time bebe.</p>
+              <p>
+                Bruh, I really tried my best to write a letter for you, but my handwriting is so ewww! HAHAHAHa I'll do
+                my best next time bebe.
+              </p>
               <div className="click-hint">Click to explore! ✨</div>
             </div>
             <div className="celebrate-card" onClick={() => openModal("gift")}>
               <div className="card-icon">🎁</div>
               <h3>Give a Gift</h3>
-              <p>I put your name on my guitar, bebe, so I can always remember you AHAHAHAHAHAHAH   👀👀👀</p>
+              <p>I put your name on my guitar, bebe, so I can always remember you AHAHAHAHAHAHAH 👀👀👀</p>
               <div className="click-hint">Click to explore! ✨</div>
             </div>
             <div className="celebrate-card" onClick={() => openModal("memories")}>
@@ -348,7 +392,7 @@ function App() {
         </div>
       </section>
 
-      {/* Modal */}
+      {/* Modal - Tips section removed */}
       {activeModal && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -367,6 +411,9 @@ function App() {
                     e.target.src = `/placeholder.svg?height=300&width=400&text=${encodeURIComponent(modalContent.title)}`
                   }}
                 />
+              </div>
+              <div className="modal-text">
+                <p>{modalContent.text}</p>
               </div>
               <div className="modal-footer">
                 <button className="modal-btn" onClick={closeModal}>
@@ -392,9 +439,7 @@ function App() {
                   <div className="card-decoration">💕</div>
                 </div>
                 <div className="card-back">
-                  <p>
-                  ខ្ញុំនឹងនៅតែងតែស្តាប់រឿងរ៉ាវរបស់អ្នក សើចនឹងកំប្លែងរបស់អ្នក ហើយចែករំលែកគ្រប់ពេលវេលាដ៏មានតម្លៃជាមួយអ្នក។🎭
-                  </p>
+                  <p>ខ្ញុំនឹងនៅតែងតែស្តាប់រឿងរ៉ាវរបស់អ្នក សើចនឹងកំប្លែងរបស់អ្នក ហើយចែករំលែកគ្រប់ពេលវេលាដ៏មានតម្លៃជាមួយអ្នក។🎭</p>
                 </div>
               </div>
             </div>
@@ -403,9 +448,7 @@ function App() {
               <div className="reason-icon">🚀</div>
               <h3>Academic Achiver</h3>
               <div className="expand-content">
-                <p>
-                នាងពូកែគ្រប់យ៉ាង។ អ្វីៗដែលនាងធ្វើ នាងធ្វើដោយចិត្តទាំងស្រុង 🎉
-                </p>
+                <p>នាងពូកែគ្រប់យ៉ាង។ អ្វីៗដែលនាងធ្វើ នាងធ្វើដោយចិត្តទាំងស្រុង 🎉</p>
                 <div className="floating-hearts">
                   <span>💖</span>
                   <span>💫</span>
@@ -418,7 +461,8 @@ function App() {
               <div className="reason-icon bouncing">😊</div>
               <h3>Sunshine in Human Form</h3>
               <p>
-              ស្នាមញញឹមរបស់នាងបំភ្លឺបន្ទប់មួយ ទំាងសំនៀងសើចរបស់នាងគឺជាម៉ូស៊ិកសម្រាប់ត្រចៀកអ្នក ហើយវត្តមានរបស់នាងធ្វើឲ្យថ្ងៃធម្មតាមួយក្លាយជាអ្វីមួយវិសេស! ☀️✨
+                ស្នាមញញឹមរបស់នាងបំភ្លឺបន្ទប់មួយ ទំាងសំនៀងសើចរបស់នាងគឺជាម៉ូស៊ិកសម្រាប់ត្រចៀកអ្នក ហើយវត្តមានរបស់នាងធ្វើឲ្យថ្ងៃធម្មតាមួយក្លាយជាអ្វីមួយវិសេស!
+                ☀️✨
               </p>
               <div className="smile-animation">
                 <span className="smile-emoji">😄</span>
@@ -432,7 +476,8 @@ function App() {
               <div className="reason-icon">👸</div>
               <h3>Uniquely Beautiful Queen</h3>
               <p>
-              ខាងក្នុងនិងខាងក្រៅ នាងបញ្ចេញភាពស្រស់ស្អាតដែលជារបស់នាងផ្ទាល់។ ភាពមានមេត្តា រូបមន្ដ និងអ្វីៗទាំងអស់របស់នាង — គ្រាន់តែអស្ចារ្យបំផុត! 👑
+                ខាងក្នុងនិងខាងក្រៅ នាងបញ្ចេញភាពស្រស់ស្អាតដែលជារបស់នាងផ្ទាល់។ ភាពមានមេត្តា រូបមន្ដ និងអ្វីៗទាំងអស់របស់នាង — គ្រាន់តែអស្ចារ្យបំផុត!
+                👑
               </p>
               <div className="beauty-glow"></div>
             </div>
@@ -440,37 +485,39 @@ function App() {
             <div className="reason-creative-card card-pulse">
               <div className="reason-icon pulse-heart">💝</div>
               <h3>Your Forever Person</h3>
-              <p>
-              សូមព្យាយាមកុំ tampo ជាញឹកញាប់អីណា បានទេ? អ្នកតែងតែសម្បាញខ្ញុំជានិច្ចហាហាហា។ ស្រឡាញ់អ្នកណាស់លើកនេះ!
-              </p>
+              <p>សូមព្យាយាមកុំ tampo ជាញឹកញាប់អីណា បានទេ? អ្នកតែងតែសម្បាញខ្ញុំជានិច្ចហាហាហា។ ស្រឡាញ់អ្នកណាស់លើកនេះ!</p>
               <div className="pulse-rings">
                 <div className="pulse-ring"></div>
                 <div className="pulse-ring"></div>
                 <div className="pulse-ring"></div>
               </div>
             </div>
-            {/* Reason 6 - Magic Card */}
-            <div className="reason-creative-card card-magic">
-              <div className="magic-sparkles">
-                <span>✨</span>
-                <span>🌟</span>
-                <span>💫</span>
-                <span>⭐</span>
-                <span>✨</span>
-                <span>🌟</span>
-                <span>💫</span>
-                <span>⭐</span>
+            {/* Reason 6 - Video Card */}
+            <div className="reason-creative-card card-video">
+              <div className="reason-icon">🎬</div>
+              <h3>Special Video for You</h3>
+              <div className="video-container">
+                <video
+                  controls
+                  className="special-video"
+                  poster="/placeholder.svg?height=200&width=300&text=Special+Video"
+                >
+                 <source src={`./b9587d59-2938-40bf-8e8e-2dc499b56abb`} type="video/mp4" />
+                  <source src={`./videos/b9587d59-2938-40bf-8e8e-2dc499b56abb.webm`} type="video/webm" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
-              <div className="reason-icon">🎭</div>
-              <h3>Life's Magic Maker</h3>
-              <p>
-                She transforms ordinary moments into extraordinary memories. With her, every day feels like a beautiful
-                adventure! 🎪🎨
-              </p>
-              <div className="magic-wand">🪄</div>
+              <p>A special video just for my amazing girlfriend! 💕✨</p>
+              <div className="video-sparkles">
+                <span>🎬</span>
+                <span>💖</span>
+                <span>🌟</span>
+                <span>🎬</span>
+                <span>💖</span>
+                <span>🌟</span>
+              </div>
             </div>
           </div>
-
           {/* Mini Games Section */}
           <section id="games" className="games">
             <div className="container">
@@ -528,8 +575,7 @@ function App() {
                 </div>
                 {/* Love Quiz */}
                 <div className="game-card">
-                  <h3>❤️ Love Quiz</h3>
-                  <p>Test your love knowledge!</p>
+                  <h3>❤️ Quiz about my BEBE</h3>
                   <div className="love-quiz">
                     {!showQuizResult ? (
                       <div className="quiz-question">
@@ -568,7 +614,6 @@ function App() {
               </div>
             </div>
           </section>
-
           {/* Special Message */}
           <div className="special-message">
             <div className="message-heart">💖</div>
