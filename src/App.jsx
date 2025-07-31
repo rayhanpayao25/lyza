@@ -1,4 +1,5 @@
 "use client"
+
 import { useState, useEffect } from "react"
 import "./App.css"
 
@@ -18,13 +19,13 @@ function App() {
   const [matchedCards, setMatchedCards] = useState([])
   const [memoryScore, setMemoryScore] = useState(0)
 
-  // Array of images - FIXED PATHS for Netlify deployment
+  // Array of images - Using correct paths for public folder
   const images = [
-    "/images/lyza.jpg",
-    "/images/lyza2.jpg",
-    "/images/lyza3.jpg",
-    "/images/lyza4.jpg",
-    "/images/lyza5.png",
+    "./images/lyza.jpg",
+    "./images/lyza2.jpg",
+    "./images/lyza3.jpg",
+    "./images/lyza4.jpg",
+    "./images/lyza5.png",
   ]
 
   // Quiz Questions
@@ -250,7 +251,11 @@ function App() {
                   alt={`Lylyza - Photo ${currentImageIndex + 1}`}
                   className="carousel-image"
                   onError={(e) => {
-                    e.target.src = "/placeholder.svg?height=400&width=350&text=Lylyza"
+                    console.log("Image failed to load:", images[currentImageIndex])
+                    e.target.src = `https://via.placeholder.com/350x400/fce4ec/e91e63?text=Lylyza+Photo+${currentImageIndex + 1}`
+                  }}
+                  onLoad={() => {
+                    console.log("Image loaded successfully:", images[currentImageIndex])
                   }}
                 />
                 <div className="image-counter">
