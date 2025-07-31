@@ -17,6 +17,10 @@ function App() {
   const [flippedCards, setFlippedCards] = useState([])
   const [matchedCards, setMatchedCards] = useState([])
 
+  // Modal states for celebration cards
+  const [activeModal, setActiveModal] = useState(null)
+  const [modalContent, setModalContent] = useState({})
+
   // Array of images - Using correct paths for public folder
   const images = [
     "./images/lyza.jpg",
@@ -152,6 +156,70 @@ function App() {
     setShowQuizResult(false)
   }
 
+  // Modal functions
+  const openModal = (type) => {
+    const content = {
+      surprise: {
+        title: "Surprise Her! 🌹",
+        image: "./images/lyza.jpg",
+        content:
+          "Plan something special that will make her heart skip a beat! Whether it's her favorite flowers, a surprise date, or just showing up with her favorite treat - the element of surprise shows how much you think about her happiness.",
+        tips: [
+          "🌹 Bring her favorite flowers unexpectedly",
+          "🍰 Surprise her with her favorite dessert",
+          "📍 Plan a surprise visit to a place she loves",
+          "🎵 Create a playlist of songs that remind you of her",
+        ],
+      },
+      letter: {
+        title: "Write a Love Letter 💌",
+        image: "./images/lyza.jpg",
+        content:
+          "There's something magical about handwritten words. In our digital age, a heartfelt letter shows effort, thought, and genuine care. Pour your heart onto paper and watch her eyes light up as she reads your words.",
+        tips: [
+          "✍️ Write it by hand for that personal touch",
+          "💕 Share specific memories you cherish together",
+          "🌟 Tell her what makes her special to you",
+          "💌 Seal it with a kiss or her favorite perfume",
+        ],
+      },
+      gift: {
+        title: "Give a Thoughtful Gift 🎁",
+        image: "./images/lyza.jpg",
+        content:
+          "The best gifts aren't always the most expensive - they're the most thoughtful. Show her you pay attention to the little things she mentions, her interests, and what makes her smile.",
+        tips: [
+          "🎨 Something related to her hobbies or interests",
+          "📚 A book by her favorite author",
+          "☕ Her favorite coffee or tea blend",
+          "🧸 Something cute that reminds you of her",
+        ],
+      },
+      memories: {
+        title: "Create Beautiful Memories 📸",
+        image: "./images/lyza.jpg",
+        content:
+          "Life is made of moments, and the best ones are shared with someone special. Create new adventures together and capture them to look back on with smiles for years to come.",
+        tips: [
+          "📸 Take photos together in beautiful places",
+          "🎪 Try new activities or adventures together",
+          "📖 Start a scrapbook of your journey together",
+          "🌅 Watch a sunrise or sunset together",
+        ],
+      },
+    }
+
+    setModalContent(content[type])
+    setActiveModal(type)
+    document.body.style.overflow = "hidden"
+  }
+
+  const closeModal = () => {
+    setActiveModal(null)
+    setModalContent({})
+    document.body.style.overflow = "unset"
+  }
+
   return (
     <div className="girlfriend-day">
       {/* Header */}
@@ -281,29 +349,74 @@ function App() {
         <div className="container">
           <h2 className="section-title">Things I do to her</h2>
           <div className="celebrate-grid">
-            <div className="celebrate-card">
+            <div className="celebrate-card" onClick={() => openModal("surprise")}>
               <div className="card-icon">🌹</div>
               <h3>Surprise Her</h3>
               <p>Plan a surprise date, bring her favorite flowers, or cook her favorite meal</p>
+              <div className="click-hint">Click to explore! ✨</div>
             </div>
-            <div className="celebrate-card">
+            <div className="celebrate-card" onClick={() => openModal("letter")}>
               <div className="card-icon">💌</div>
               <h3>Write a Letter</h3>
               <p>Express your feelings with a heartfelt handwritten letter or love note</p>
+              <div className="click-hint">Click to explore! ✨</div>
             </div>
-            <div className="celebrate-card">
+            <div className="celebrate-card" onClick={() => openModal("gift")}>
               <div className="card-icon">🎁</div>
               <h3>Give a Gift</h3>
               <p>Something thoughtful that shows how much you care and know her</p>
+              <div className="click-hint">Click to explore! ✨</div>
             </div>
-            <div className="celebrate-card">
+            <div className="celebrate-card" onClick={() => openModal("memories")}>
               <div className="card-icon">📸</div>
               <h3>Create Memories</h3>
               <p>Take photos together, make a scrapbook, or plan a special adventure</p>
+              <div className="click-hint">Click to explore! ✨</div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Modal */}
+      {activeModal && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModal}>
+              ✕
+            </button>
+            <div className="modal-header">
+              <h2>{modalContent.title}</h2>
+            </div>
+            <div className="modal-body">
+              <div className="modal-image">
+                <img
+                  src={modalContent.image || "/placeholder.svg?height=300&width=400&text=Love+Image"}
+                  alt={modalContent.title}
+                  onError={(e) => {
+                    e.target.src = `/placeholder.svg?height=300&width=400&text=${encodeURIComponent(modalContent.title)}`
+                  }}
+                />
+              </div>
+              <div className="modal-text">
+                <p>{modalContent.content}</p>
+                <div className="modal-tips">
+                  <h4>💡 Ideas to try:</h4>
+                  <ul>
+                    {modalContent.tips?.map((tip, index) => (
+                      <li key={index}>{tip}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button className="modal-btn" onClick={closeModal}>
+                  Got it! 💕
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Reasons Section */}
       <section id="reasons" className="reasons">
