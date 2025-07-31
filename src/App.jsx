@@ -472,7 +472,7 @@ function App() {
             <div className="reason-creative-card card-gradient">
               <div className="beauty-stars">✨ ⭐ 💫 ✨</div>
               <div className="reason-icon">👸</div>
-              <h3>Uniquely Beautiful Queen</h3>
+              <h3>Uniquely Beautiful </h3>
               <p>
                 ខាងក្នុងនិងខាងក្រៅ នាងបញ្ចេញភាពស្រស់ស្អាតដែលជារបស់នាងផ្ទាល់។ ភាពមានមេត្តា រូបមន្ដ និងអ្វីៗទាំងអស់របស់នាង — គ្រាន់តែអស្ចារ្យបំផុត!
                 👑
@@ -493,7 +493,7 @@ function App() {
             {/* Reason 6 - Video Card - FIXED PATH */}
             <div className="reason-creative-card card-video">
               <div className="reason-icon">🎬</div>
-              <h3>Special Video for You</h3>
+              <h3>Vm for mylove</h3>
               <div className="video-container">
                 <video
                   controls
@@ -516,7 +516,7 @@ function App() {
                   </p>
                 </video>
               </div>
-              <p>A special video just for my amazing girlfriend! 💕✨</p>
+            
               <div className="video-sparkles">
                 <span>🎬</span>
                 <span>💖</span>
@@ -560,7 +560,7 @@ function App() {
                 {/* Kiss Counter */}
                 <div className="game-card">
                   <h3>💋 Kiss Counter</h3>
-                  <p>Send virtual kisses to Lylyza!</p>
+                  <p>Send virtual kisses to Lyzamylove!</p>
                   <div className="kiss-counter">
                     <div className="kiss-display">
                       <span className="kiss-emoji">💋</span>
